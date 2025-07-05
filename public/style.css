@@ -6,6 +6,7 @@
   font-family: transformer;
   src: url("./fonts/TransformersMovie.ttf");
 }
+
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
@@ -19,6 +20,7 @@ body{
 }
 section{
   height: 100vh;
+  /* margin-bottom: 5vh; */
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
@@ -108,4 +110,14 @@ a:link{
   display: grid;
   grid-template-columns: 1fr auto;
   column-gap: 250px;
+}
+
+.hidden{
+  opacity: 0;
+  transition: all 0.2s;
+}
+.about-me p{
+    color: #e5b078;
+    font-size: 1.5rem;
+    font-family: Conthrax;
 }

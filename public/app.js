@@ -1,34 +1,28 @@
-// document.querySelectorAll("h2").forEach(h2 => {
-//   let tl = gsap.timeline({
-//     scrollTrigger: {
-//       trigger: h2,
-//       start: "-50% center",
-//       end: "1000% center",
-//       scrub: true,
-//       markers: true,
-//     }
-//   });
-
-//   tl.from(h2, {
-//     x: -500,
-//     opacity: 0,
-//     duration: 1.2
-//   });
-// });
-
-var observer = new IntersectionObserver((entries, observer) => {
+const observer = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
-    console.log('Entry:', entry);
     if (entry.isIntersecting) {
-      console.log('Intersecting:', entry.target);
-    } else {
-      console.log('Not intersecting:', entry.target);
+      const section = entry.target;
+      section.classList.remove("hidden"); 
+
+      const heading = section.querySelector(".header.animate");
+      const paragraph = section.querySelector(".content.animate");
+      const image = section.querySelector(".image.animate");
+
+
+      gsap.from(heading, { y: -100, opacity: 0, duration: 0.5 });
+      gsap.from(paragraph, { x: -50, opacity: 0, duration: 0.5, delay: 0.3 });
+      gsap.from(image, { scale: 0.8, opacity: 0, duration: 0.5, delay: 0.6 });
+
+    }
+    else{
+      entry.target.classList.add("hidden"); 
     }
   });
 }, {
-  threshold: 0.1 // trigger when 10% is visible
+  threshold: 0.9 // Only when section is fully visible
 });
-// Observe all <section> elements
-document.querySelectorAll('section').forEach(section => {
+
+// Observe all sections
+document.querySelectorAll("section").forEach(section => {
   observer.observe(section);
 });
