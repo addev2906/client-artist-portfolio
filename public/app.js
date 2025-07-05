@@ -9,9 +9,9 @@ const observer = new IntersectionObserver((entries, observer) => {
       const image = section.querySelector(".image.animate");
 
 
-      gsap.from(heading, { y: -100, opacity: 0, duration: 0.5 });
-      gsap.from(paragraph, { x: -50, opacity: 0, duration: 0.5, delay: 0.3 });
-      gsap.from(image, { scale: 0.8, opacity: 0, duration: 0.5, delay: 0.6 });
+      gsap.from(heading, { y: -110, opacity: 0, duration: 0.7 });
+      gsap.from(paragraph, { x: -50, opacity: 0, duration: 0.7, delay: 0.3 });
+      gsap.from(image, { scale: 0.8, opacity: 0, duration: 0.7, delay: 0.6 });
 
     }
     else{
